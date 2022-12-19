@@ -1,0 +1,182 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbbsd1lexr3at"]
+
+[ext_resource type="Script" path="res://Chatroom/Scenes/app.gd" id="1_xy1re"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0lvm"]
+bg_color = Color(0.00392157, 0.0156863, 0.0431373, 1)
+
+[node name="App" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xy1re")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a0lvm")
+
+[node name="AppContents" type="MarginContainer" parent="Background"]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="Background/AppContents"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1132.0
+offset_bottom = 628.0
+theme_override_constants/separation = 10
+
+[node name="ConnectionBar" type="HBoxContainer" parent="Background/AppContents/Rows"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_right = 1112.0
+offset_bottom = 50.0
+
+[node name="Name" type="LineEdit" parent="Background/AppContents/Rows/ConnectionBar"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+offset_right = 150.0
+offset_bottom = 50.0
+placeholder_text = "Name"
+
+[node name="IP" type="LineEdit" parent="Background/AppContents/Rows/ConnectionBar"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 154.0
+offset_right = 354.0
+offset_bottom = 50.0
+text = "127.0.0.1"
+placeholder_text = "IP"
+
+[node name="Color" type="OptionButton" parent="Background/AppContents/Rows/ConnectionBar"]
+layout_mode = 2
+offset_left = 358.0
+offset_right = 449.0
+offset_bottom = 50.0
+item_count = 3
+selected = 0
+popup/item_0/text = "Red"
+popup/item_0/id = 0
+popup/item_1/text = "Green"
+popup/item_1/id = 1
+popup/item_2/text = "Blue"
+popup/item_2/id = 2
+
+[node name="Host" type="Button" parent="Background/AppContents/Rows/ConnectionBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 453.0
+offset_right = 553.0
+offset_bottom = 50.0
+text = "Host"
+
+[node name="Join" type="Button" parent="Background/AppContents/Rows/ConnectionBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 557.0
+offset_right = 657.0
+offset_bottom = 50.0
+text = "Join"
+
+[node name="Status" type="Label" parent="Background/AppContents/Rows/ConnectionBar"]
+layout_mode = 2
+offset_left = 661.0
+offset_top = 12.0
+offset_right = 777.0
+offset_bottom = 38.0
+size_flags_horizontal = 8
+text = "Status: Waiting"
+
+[node name="Row1" type="HBoxContainer" parent="Background/AppContents/Rows"]
+layout_mode = 2
+offset_top = 60.0
+offset_right = 1112.0
+offset_bottom = 548.0
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="OutputWindow" type="PanelContainer" parent="Background/AppContents/Rows/Row1"]
+layout_mode = 2
+offset_right = 802.0
+offset_bottom = 488.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/AppContents/Rows/Row1/OutputWindow"]
+layout_mode = 2
+offset_right = 802.0
+offset_bottom = 488.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="OutputText" type="RichTextLabel" parent="Background/AppContents/Rows/Row1/OutputWindow/MarginContainer"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 792.0
+offset_bottom = 478.0
+theme_override_colors/default_color = Color(0.843137, 0.988235, 1, 1)
+bbcode_enabled = true
+
+[node name="Sidebar" type="PanelContainer" parent="Background/AppContents/Rows/Row1"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+offset_left = 812.0
+offset_right = 1112.0
+offset_bottom = 488.0
+
+[node name="ActiveUsers" type="ItemList" parent="Background/AppContents/Rows/Row1/Sidebar"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 488.0
+
+[node name="Row2" type="HBoxContainer" parent="Background/AppContents/Rows"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_top = 558.0
+offset_right = 1112.0
+offset_bottom = 608.0
+theme_override_constants/separation = 10
+
+[node name="InputField" type="PanelContainer" parent="Background/AppContents/Rows/Row2"]
+layout_mode = 2
+offset_right = 802.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="Background/AppContents/Rows/Row2/InputField"]
+layout_mode = 2
+offset_right = 802.0
+offset_bottom = 50.0
+caret_blink = true
+
+[node name="ActionButton" type="PanelContainer" parent="Background/AppContents/Rows/Row2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+offset_left = 812.0
+offset_right = 1112.0
+offset_bottom = 50.0
+
+[node name="Button" type="Button" parent="Background/AppContents/Rows/Row2/ActionButton"]
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 50.0
+text = "Send"
+
+[connection signal="pressed" from="Background/AppContents/Rows/ConnectionBar/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Background/AppContents/Rows/ConnectionBar/Join" to="." method="_on_join_pressed"]
